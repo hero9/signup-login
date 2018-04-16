@@ -1,0 +1,29 @@
+GridLayout {
+    background-color: #ccc;
+}
+
+.form-wrapper {
+    margin: 10px;
+    vertical-align: center;
+}
+
+.form {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.social-icons {
+    justify-content: space-between;
+}
+
+Image {
+    width: 36px;
+    height: 36px;
+    margin-top: 7px;
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    margin-left: 8px;
+}

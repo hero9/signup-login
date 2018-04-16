@@ -1,0 +1,26 @@
+<ActionBar title="{{ title }}"></ActionBar>
+<GridLayout>
+    <ScrollView>
+        <StackLayout class="form-wrapper">                
+            <StackLayout class="form">
+                <Label text="Войти через соц сети:"></Label>
+                <FlexboxLayout class="social-icons">
+                    <Image class="icon" *ngFor="let path of paths" src="{{ path.title }}"></Image>
+                </FlexboxLayout>          
+                <StackLayout class="input-field">
+                    <Label text="Email" class="label font-weight-bold m-b-5"></Label>
+                    <TextField keyboardType="email" class="input" [(ngModel)]="input.email"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <Label text="Пароль" class="label font-weight-bold m-b-5"></Label>
+                    <TextField secure="true" class="input" [(ngModel)]="input.password"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <Label class="error" *ngIf="acc" text="Email или Пароль введены не верно!"></Label>
+                <Button class="btn btn-primary w-full" text="Логин" (tap)="login()"></Button>
+                <Label [nsRouterLink]="['/register']" text="Зарегистрироваться" class="text-center footnote"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

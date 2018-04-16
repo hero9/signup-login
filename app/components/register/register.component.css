@@ -1,0 +1,23 @@
+GridLayout {
+    background-color: #CCCCCC;
+}
+
+.form-align {
+    margin: 10;
+    vertical-align: center;
+}
+
+.form {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.warning {
+    color: #ffc107;
+    margin-bottom: 10px;
+    margin-left: 7px;
+}
+
+.error {
+    color: red;
+}

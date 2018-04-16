@@ -1,0 +1,44 @@
+<ActionBar title="Регистрация">
+    <NavigationButton text="Back" ios.position="left"></NavigationButton>
+</ActionBar>
+<GridLayout>
+    <ScrollView>
+        <StackLayout class="form-align">
+            <StackLayout class="form">
+                <StackLayout class="input-field">
+                    <Label text="Имя" class="label font-weight-bold m-b-5"></Label>
+                    <TextField class="input" [(ngModel)]="input.firstname" required></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <Label text="Фамилия" class="label font-weight-bold m-b-5"></Label>
+                    <TextField class="input" [(ngModel)]="input.lastname" required></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <Label text="Email"  class="label font-weight-bold m-b-5"></Label>
+                    <TextField class="input" #email="ngModel" [(ngModel)]="input.email" keyboardType="email"
+                    email requried></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                    <StackLayout *ngIf="email.errors && (email.dirty || email.touched)">
+                        <Label class="error" *ngIf="email.errors.required" text="Введите Email"></Label>
+                        <Label class="error" *ngIf="email.errors.email" text="Введите корректный Email"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <Label text="Пароль" class="label font-weight-bold m-b-5"></Label>
+                    <TextField secure="true" #password="ngModel" minlength="5" class="input" [(ngModel)]="input.password" required></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                    <StackLayout *ngIf="password.errors && (password.dirty || password.touched)">
+                        <Label class="error" *ngIf="password.errors.required" text="Введите пароль"></Label>
+                        <Label class="error" *ngIf="password.errors.minlength" text="Пароль должен быть больше 5 знаков"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <Label *ngIf="!(input.firstname && input.lastname && email.valid && password.valid)" class="warning" text="Заполните все поля!" ></Label>
+                <Button class="btn btn-primary w-full" text="Регистрация" (tap)="register()" 
+                        *ngIf="input.firstname && input.lastname && email.valid && password.valid"></Button>
+                <Label (tap)="goBack()" text="Уже зарегистрированы?" class="text-center footnote"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

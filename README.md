@@ -11,3 +11,4 @@ git clone https://github.com/hero9/signup-login
 ```
 tns run android
 ```
+upd: Uploaded apk file(just download to your Android smartphone and install). 
